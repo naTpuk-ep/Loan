@@ -19,9 +19,7 @@ export default class Form {
 	checkEmailInputs() {	
 		const Emailinputs = document.querySelectorAll('[type="email"]');
 		Emailinputs.forEach(input => {
-			input.addEventListener('input', function(e) {
-				// e.preventDefault;
-				console.log(123);
+			input.addEventListener('input', function() {
 				input.value = input.value.replace(/[а-яё]/ig, '');
 			});
 		});
@@ -106,8 +104,8 @@ export default class Form {
 				statusMessage.textContent = this.message.loading;
 				const formData = new FormData(form);
 				this.postData(this.path, formData)
-					.then(res => {
-						console.log(res);
+					.then(resp => {
+						console.log(resp);
 						statusMessage.textContent = this.message.success;
 					})
 					.catch(() => {

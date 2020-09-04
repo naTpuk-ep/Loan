@@ -84,7 +84,6 @@ export default class PageSlider extends Slider {
 						if (this.slides[1] != this.firstSlide) {
 							let sek = 0.2;
 							this.slides.forEach((slide, i) => {
-								console.log(sek);
 								if (i != 0) {
 									sek < 0.1 ? sek = 0.1 : sek;
 									slide.style.transition = `all linear ${sek -= 0.04}s`;
