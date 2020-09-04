@@ -1,5 +1,4 @@
 export default class VideoPlayer {
-
 	constructor(triggers, overlay) {
 		this.btns = document.querySelectorAll(triggers);
 		this.overlay = document.querySelector(overlay);
@@ -7,9 +6,7 @@ export default class VideoPlayer {
 		this.onPlayerStateChange = this.onPlayerStateChange.bind(this); //жестко привязываем контекст вызова к этому методу
 	}
 
-
-	bindTriggers () {
-	
+	bindTriggers () {	
 		this.btns.forEach((btn, i) => {
 			try {
 				const blockedElem = btn.closest('.module__video-item').nextElementSibling;
@@ -33,30 +30,23 @@ export default class VideoPlayer {
 		});
 	}
 
-
 	closePlayer (){
-	
 		this.overlay.style.display = 'none';
 		this.player.stopVideo();
 	}
 
-
-	bindClose() {
-	
+	bindClose() {	
 		this.close.addEventListener('click', () => {
 			this.closePlayer();
 		});
-
 		this.overlay.addEventListener('click', (e) => {
 			if (e.target === this.overlay) {
 				this.closePlayer();
 			};
 		});
 	}
-
 	
-	createPlayer(url) {
-	
+	createPlayer(url) {	
 		this.player = new YT.Player('frame', {
 			height: '100%',
 			width: '100%',
@@ -69,9 +59,7 @@ export default class VideoPlayer {
 		this.overlay.style.display = 'flex';
 	}
 
-
 	onPlayerStateChange(state) {
-
 		try {
 			const blockedElem = this.activeBtn.closest('.module__video-item').nextElementSibling;
 			const playBtn = this.activeBtn.querySelector('svg').cloneNode(true); //глубокое копирование
@@ -90,9 +78,7 @@ export default class VideoPlayer {
 		}catch(e){}
 	}
 
-
 	init() {
-
 		if(this.btns.length > 0) {
 			const tag = document.createElement('script');
 			tag.src = "https://www.youtube.com/iframe_api";

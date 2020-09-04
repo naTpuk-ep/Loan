@@ -1,5 +1,4 @@
 export default class Form {
-
 	constructor(forms) {
 		this.forms = document.querySelectorAll(forms);
 		this.inputs = document.querySelectorAll('input');
@@ -11,17 +10,13 @@ export default class Form {
 		this.path = 'assets/question.php';
 	}
 
-
-	clearInputs() {
-	
+	clearInputs() {	
 		this.inputs.forEach(input => {
 			input.value = '';
 		});
 	}
 
-
-	checkEmailInputs() {
-	
+	checkEmailInputs() {	
 		const Emailinputs = document.querySelectorAll('[type="email"]');
 		Emailinputs.forEach(input => {
 			input.addEventListener('input', function(e) {
@@ -32,15 +27,13 @@ export default class Form {
 		});
 	}
 
-
-	mask() {
-	
+	mask() {	
 		let setCursorPosition = (pos, elem) => {
 			if (elem.selectionStart < 2) {
 				elem.selectionStart = 2;
 			};
 			elem.focus();
-			if (elem.setSelectionRange) {                  // кроссбраузерная проверка
+			if (elem.setSelectionRange) {	// кроссбраузерная проверка
 					elem.setSelectionRange(pos, pos);
 			} else if (elem.createTextRange) {
 				let range = elem.createTextRange();
@@ -51,7 +44,6 @@ export default class Form {
 			};
 		};
 		function createMask(event) {
-			// event.preventDefault();
 			let matrix = '+1 (___) ___-____',
 				i = 0,
 				def = matrix.replace(/\D/g, ''),
@@ -90,24 +82,20 @@ export default class Form {
 			});
 	}
 
-	async postData (url, data) {      // async говорит, что функции будут выполняться асинхронно, не сразу
-		let res = await fetch(url, {               // в данном случае await, по получению ответа от сервера
+	async postData (url, data) {
+		let res = await fetch(url, {
 			method: 'POST',
 			body: data
 		});
 		 return await res.text();
 	}
 
-
-	init() {
-	
+	init() {	
 		this.checkEmailInputs();
 		this.mask();
-
 		this.forms.forEach(form => {
 			form.addEventListener('submit', (e)=> {
 				e.preventDefault();
-
 				let statusMessage = document.createElement('div');
 				statusMessage.style.cssText = `
 					margin-top: 15px;
@@ -116,7 +104,6 @@ export default class Form {
 				`;
 				form.parentNode.appendChild(statusMessage);
 				statusMessage.textContent = this.message.loading;
-
 				const formData = new FormData(form);
 				this.postData(this.path, formData)
 					.then(res => {

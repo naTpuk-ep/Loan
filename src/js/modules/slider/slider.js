@@ -1,5 +1,4 @@
 export default class Slider {
-	
 	constructor({container = null, next = null, prev = null, activeClass = '', animate, auto} = {}) {
 		this.container = document.querySelector(container);
 		try {

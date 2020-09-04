@@ -1,6 +1,5 @@
-import MainSlider from "./modules/slider/slider-main";
 import VideoPlayer from "./modules/playVideo";
-import SliderMini from "./modules/slider/slider-mini";
+import MiniSlider from "./modules/slider/miniSlider";
 import Difference from "./modules/difference";
 import Form from "./modules/form";
 import Accordeon from "./modules/accordeon";
@@ -8,17 +7,12 @@ import Download from "./modules/download";
 import PageSlider from "./modules/slider/pageSlider";
 
 window.addEventListener('DOMContentLoaded', () => {
-	// const slider = new MainSlider({container: '.page', btns: '.next'});
-	// slider.render();
-
-	// const modulePageSlider = new MainSlider({container: '.moduleapp', btns: '.next', next: '.nextmodule', prev: '.prevmodule'});
-	// modulePageSlider.render();
 
 	new PageSlider({container: '.page', next: '.next'}).render();
 
 	new PageSlider({container: '.moduleapp', next: '.next', prev: '.prev'}).render();
 
-	const showUpSlider = new SliderMini({
+	const showUpSlider = new MiniSlider({
 		container: '.showup__content-slider',
 		next: '.showup__next',
 		prev: '.showup__prev',
@@ -27,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 	showUpSlider.init();
 
-	const modulesSlider = new SliderMini({
+	const modulesSlider = new MiniSlider({
 		container: '.modules__content-slider',
 		next: '.modules__info-btns .slick-next',
 		prev: '.modules__info-btns .slick-prev',
@@ -37,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 	modulesSlider.init();
 
-	const feedSlider = new SliderMini({
+	const feedSlider = new MiniSlider({
 		container: '.feed__slider',
 		next: '.feed__slider .slick-next',
 		prev: '.feed__slider .slick-prev',
@@ -58,4 +52,5 @@ window.addEventListener('DOMContentLoaded', () => {
 	new Accordeon('.plus').init();
 
 	new Download('.download').init();
+
 });

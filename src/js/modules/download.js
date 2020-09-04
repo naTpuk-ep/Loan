@@ -1,13 +1,10 @@
 export default class Download {
-
 	constructor (triggers) {
 		this.triggers = document.querySelectorAll(triggers);
 		this.path = 'assets/img/mainbg.jpg';
 	}
 
-
-	downloadItem(path) {
-	
+	downloadItem(path) {	
 		const link = document.createElement('a');
 		link.setAttribute('href', path);
 		link.setAttribute('download', 'nice_picture');
@@ -17,9 +14,7 @@ export default class Download {
 		document.body.removeChild(link);
 	}
 
-
-	init() {
-	
+	init() {	
 		this.triggers.forEach(trigger => {
 			trigger.style.cursor = 'pointer';
 			trigger.addEventListener('click', (e) => {

@@ -1,12 +1,9 @@
 export default class Accordeon {
-
 	constructor (trigger) {
 		this.triggers = document.querySelectorAll(trigger);
 	}
 
-
-	init() { 
-	
+	init() { 	
 		try {
 			this.triggers.forEach(trigger => {
 				let msg = trigger.closest('.module__info-show').nextElementSibling;

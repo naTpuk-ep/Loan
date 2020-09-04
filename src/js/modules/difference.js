@@ -1,5 +1,4 @@
 export default class Difference {
-
 	constructor(cards) {
 		try {
 			this.cards = document.querySelector(cards);
@@ -13,9 +12,7 @@ export default class Difference {
 		} catch(e){}
 	}
 
-
 	bind(item, items, offIndex) {
-	
 		item.querySelector('.plus').addEventListener('click', () => {
 			items[this.counter[offIndex]].style.display = 'flex';
 			let mTop = window.getComputedStyle(item).marginTop;
@@ -35,9 +32,7 @@ export default class Difference {
 		});
 	}
 
-
-	hide() {
-	
+	hide() {	
 		this.officers.forEach((officer, offIndex) => {
 			this.counter[offIndex] = 1;
 			officer.children.forEach((item, i, items) => {
@@ -53,9 +48,7 @@ export default class Difference {
 		});
 	}
 
-
 	init() {
-	
 		try {
 			this.hide();
 		} catch(e){}
