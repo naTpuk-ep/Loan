@@ -12,7 +12,7 @@ export default class Form {
 
 	clearInputs() {	
 		this.inputs.forEach(input => {
-			input.value = '';
+			if (input.type !== 'submit') input.value = '';
 		});
 	}
 
@@ -112,10 +112,10 @@ export default class Form {
 						statusMessage.textContent = this.message.failure;
 					})
 					.finally(() => {
-						this.clearInputs;
+						this.clearInputs();
 						setTimeout(() => {
 							statusMessage.remove();
-						}, 5000);
+						}, 1500);
 					});
 			});
 		});

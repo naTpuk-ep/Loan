@@ -92,7 +92,7 @@ export default class PageSlider extends Slider {
 							this.showNextSlides(true);
 						} 
 					} else {
-						return window.location.href = '/index.html'
+						return window.location.href = './index.html'
 					}
 				});
 			};
